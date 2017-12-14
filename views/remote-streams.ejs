@@ -1,0 +1,29 @@
+<div class="remoteStreams" ng-controller="RemoteStreamsController as rtc">
+	<div id="rmVedioName"></div>
+	<div id="remoteVideosContainer"></div>
+	
+<h1>911 Calls Broadcaster</h1>
+
+	<table align="center" width="50%">
+    	<thead>
+    		<tr>
+        		<th>Caller ID</th><th>Caller Location <br>(Latitude/Longitude)</th><th>Action</th>
+   			</tr>
+   		</thead>
+    	<tbody>
+    		<tr ng-repeat="stream in rtc.remoteStreams" ng-class="{'selected' : stream.isPlaying}">
+        		<td  width="40%"><a>{{stream.name}}</a></td>
+               
+                <td  width="40%"><p>{{stream.lat}} / {{stream.lng}}</p></td>
+		 <td ng-click="rtc.view(stream)"  width="20%"><a title="Click to view the video">View</a></td>
+    		</tr>
+		<tr><td colspan="3">
+		<li ng-click="rtc.loadData()" style="width: 240px">   
+	<a href>Refresh</a>
+    </li>
+		</td></tr>
+		</tbody>
+	</table>
+
+	
+<div class="remoteStreams">
